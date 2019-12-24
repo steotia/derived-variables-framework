@@ -1,7 +1,7 @@
 # derived-variables-framework
 In a catalog of objects, certain object properties are static and some are derived. What could be a good software design to:
 1. incorporate derived properties into a system which was till now handling only static properties
-2. keep business and engineering in close loop?
+2. keep business and engineering in close loop over derived properties
 2. ensure freshness and validity of derived properties
 ## Assumptions
 1. an object's derived values' may depend on (a) it's own properties (b) other properties (c) time and any combination.
