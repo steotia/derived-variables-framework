@@ -52,10 +52,12 @@ In a catalog of objects, certain object properties are static and some are deriv
    `delivery.derived.skillgap`
    `website.telemetry`
    `website.derived.throughput`
+ 8. Since, derived properties are going to their own topic, and have their creation metadata, it is trivial to write functions which emit health / send command to re-process derivation
+ 9. For derivations which are scheduled, a crontab based process can send commands for re-processing
  ## Alternatives considered
  - vs simplicity: SQS/SNS/AWS Step functions and Lambda functions for defining workflows/dataflows which create derived data. This is a good option if the number of derivations are complex and limited. However, if the properties are limited to only Products, I will go with this approach
  - vs operating cost: complete serverless arch via Kinesis/Lambda/SQS and rejected due to steeper learning curve involved. If cost to operate is a concern and time to climb the learning curve is available, then this is a good option
 ## Closing thought
-It is hard to solve this problem without knowing more about the domain. I have worked with reactive systems earlier and love the power of data democratization it allows. Also, since it is reactive and can be real time, the real benefit is available only when there is enough scale, where humans can no longer use intuition to solve the problems of matching demand and supply.
-However, running these systems can also be costly, since these run in clusters. Generally, a discussion helps me know if my assumptions are getting ahead of me. However, for the assumptions I have taken, the design I have recommended is good and takes a bit of internal adoption to shine.
+It is hard to solve this problem without knowing more about the domain. I have worked with reactive systems earlier and love the power of data democratization it allows. Also, since it is reactive and can be real time, the real benefit is available only when there is enough scale, where humans can no longer use intuition to solve the problems of matching demand and supply but need to do that at scale to continue having competitive advantage.
+However, running these systems can also be costly, since these run in clusters. Generally, a discussion helps me know if my assumptions are getting ahead of me. However, for the assumptions I have taken, the design I have recommended is good and takes a bit of time, scale and internal adoption to shine.
 
